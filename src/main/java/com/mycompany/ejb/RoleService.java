@@ -4,15 +4,19 @@
  */
 package com.mycompany.ejb;
 
-import com.mycompany.jpa.User;
+import com.mycompany.jpa.Role;
 import jakarta.ejb.Local;
+import java.util.List;
 
 /**
  *
  * @author Lenovo
  */
 @Local
-public interface UserService {
-    User authenticate(String username, String password);
-    void register(User user);
+public interface RoleService {
+    Role findByName(String name);
+    
+    void createRole(Role role);
+    
+    List<Role> findAllRoles();
 }

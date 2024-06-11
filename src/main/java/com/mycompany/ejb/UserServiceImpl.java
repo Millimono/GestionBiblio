@@ -1,36 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/J2EE/EJB40/StatelessEjbClass.java to edit this template
- */
-package com.mycompany.ejb;
 
+import com.mycompany.ejb.UserService;
 import com.mycompany.jpa.User;
 import jakarta.ejb.Stateless;
-import jakarta.ejb.LocalBean;
-import java.util.HashMap;
-import java.util.Map;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
-/**
- *
- * @author Lenovo
- */
+
+
 @Stateless
 public class UserServiceImpl implements UserService {
 
-    private static final Map<String, User> users = new HashMap<>();
-
-    static {
-        users.put("admin", new User("admin", "admin123", "admin"));
-        users.put("user", new User("user", "user123", "user"));
-    }
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     public User authenticate(String username, String password) {
-        User user = users.get(username);
-        if (user != null && user.getPassword().equals(password)) {
-            return user;
+        try {
+            return em.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password", User.class)
+                    .setParameter("username", username)
+                    .setParameter("password", password)
+                    .getSingleResult();
+        } catch (Exception e) {
+            return null;
         }
-        return null;
+    }
+
+    @Override
+    public void register(User user) {
+        em.persist(user);
     }
 }
-

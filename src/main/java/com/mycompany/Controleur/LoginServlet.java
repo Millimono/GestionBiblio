@@ -35,10 +35,12 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         User user = userService.authenticate(username, password);
+        System.out.println(user.getRole().getName());
+        System.out.println(user.getRole());
 
         if (user != null) {
             request.getSession().setAttribute("user", user);
-            if ("admin".equals(user.getRole())) {
+            if ("admin".equals(user.getRole().getName())) {
                 response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
             } else {
                 response.sendRedirect(request.getContextPath() + "/user/home.jsp");

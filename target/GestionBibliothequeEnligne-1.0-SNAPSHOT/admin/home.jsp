@@ -10,7 +10,7 @@
         <a href="#" class="w3-bar-item w3-button w3-black">Accueil</a>
         <a href="#" class="w3-bar-item w3-button">Gestion des Livres</a>
         <a href="#" class="w3-bar-item w3-button">Gestion des Utilisateurs</a>
-        <a href="#" class="w3-bar-item w3-button">Déconnexion</a>
+        <a href="${pageContext.request.contextPath}/logout" class="w3-bar-item w3-button">Déconnexion</a>
     </div>
     <div class="w3-container w3-margin-top">
         <h1 class="w3-center">Bienvenue Admin</h1>
