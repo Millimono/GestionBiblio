@@ -1,0 +1,6 @@
+com\mycompany\Controleur\LoginServlet.class
+com\mycompany\Controleur\User.class
+com\mycompany\gestionbibliothequeenligne\JakartaRestConfiguration.class
+com\mycompany\gestionbibliothequeenligne\resources\JakartaEE91Resource.class
+com\mycompany\ejb\UserService.class
+com\mycompany\ejb\UserServiceImpl.class
