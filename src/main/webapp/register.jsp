@@ -1,9 +1,4 @@
-<%-- 
-    Document   : register
-    Created on : 11 juin 2024, 22 h 00 min 00 s
-    Author     : Lenovo
---%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,6 +36,10 @@
                     <input type="password" class="w3-input" id="password" name="password" required>
                 </div>
                 <div class="w3-section">
+                    <label for="email">Email:</label>
+                    <input type="email" class="w3-input" id="email" name="email" required>
+                </div>
+                <div class="w3-section">
                     <label for="role">Rôle:</label>
                     <select class="w3-select" id="role" name="role">
                         <option value="user">Utilisateur</option>
@@ -53,4 +52,3 @@
     </div>
 </body>
 </html>
-

@@ -24,17 +24,48 @@
         </dependency>
         
         <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>jakarta.persistence</artifactId>
-            <version>2.2.3</version>
-            <scope>provided</scope>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.15.2.0</version>
+        </dependency>
+      
+    
+                <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>2.2.224</version>
+            </dependency>
+    
+            <!-- EclipseLink JPA implementation -->
+
+            <dependency>
+                <groupId>org.eclipse.persistence</groupId>
+                <artifactId>eclipselink</artifactId>
+                <version>2.7.9</version>
+             </dependency>
+             
+            <dependency>
+                <groupId>org.hsqldb</groupId>
+                <artifactId>hsqldb</artifactId>
+                <version>2.7.2</version>
+                <scope>runtime</scope>
+            </dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.5.0-b01</version>
         </dependency>
         
-         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>2.2.224</version>
+        <dependency>
+                <groupId>org.glassfish.main.common</groupId>
+                <artifactId>glassfish-api</artifactId>
+                <version>8.0.0-JDK17-M6</version>
         </dependency>
+        
+   
+
+
         
     </dependencies>
     

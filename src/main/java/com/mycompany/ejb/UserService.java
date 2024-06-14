@@ -6,6 +6,8 @@ package com.mycompany.ejb;
 
 import com.mycompany.jpa.User;
 import jakarta.ejb.Local;
+import jakarta.transaction.Transactional;
+import java.util.List;
 
 /**
  *
@@ -15,4 +17,14 @@ import jakarta.ejb.Local;
 public interface UserService {
     User authenticate(String username, String password);
     void register(User user);
+    
+    public User findUserById(Long id);
+
+    public void updateUser(User user) ;
+
+    public void deleteUser(Long id);
+    
+    public List<User> getAllUsers() ;
+    User findByUsername(String username);
+
 }

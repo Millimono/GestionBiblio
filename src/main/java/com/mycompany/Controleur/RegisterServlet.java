@@ -37,7 +37,11 @@ public class RegisterServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String roleName = request.getParameter("role");
+        String email = request.getParameter("email");
 
+       
+
+        
         Role role = roleService.findByName(roleName);
         if (role == null) {
             role = new Role();
@@ -48,6 +52,7 @@ public class RegisterServlet extends HttpServlet {
         User newUser = new User();
         newUser.setUsername(username);
         newUser.setPassword(password);
+        newUser.setEmail(email);
         newUser.setRole(role);
 
         userService.register(newUser);
@@ -55,6 +60,7 @@ public class RegisterServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/login.jsp");
     }
 }
+
 
 
 

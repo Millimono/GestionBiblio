@@ -7,7 +7,9 @@ package com.mycompany.ejb;
 import com.mycompany.jpa.Role;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import java.util.List;
 
 /**
@@ -17,18 +19,18 @@ import java.util.List;
 
 @Stateless
 public class RoleServiceImpl implements RoleService {
-
+ 
     @PersistenceContext
     private EntityManager em;
 
-    @Override
+   @Override
     public Role findByName(String name) {
         try {
             return em.createQuery("SELECT r FROM Role r WHERE r.name = :name", Role.class)
-                    .setParameter("name", name)
-                    .getSingleResult();
-        } catch (Exception e) {
-            return null;
+                     .setParameter("name", name)
+                     .getSingleResult();
+        } catch (NoResultException e) {
+            return null;  // Return null if no result found
         }
     }
 
@@ -41,4 +43,6 @@ public class RoleServiceImpl implements RoleService {
     public List<Role> findAllRoles() {
         return em.createQuery("SELECT r FROM Role r", Role.class).getResultList();
     }
+    
+    
 }

@@ -7,9 +7,9 @@
 </head>
 <body>
     <div class="w3-bar w3-light-grey">
-        <a href="#" class="w3-bar-item w3-button w3-black">Accueil</a>
-        <a href="#" class="w3-bar-item w3-button">Rechercher des Livres</a>
-        <a href="#" class="w3-bar-item w3-button">Mes Emprunts</a>
+        <a href="${pageContext.request.contextPath}/user/home" class="w3-bar-item w3-button w3-black">Accueil</a>
+        <a href="${pageContext.request.contextPath}/user/searchBooks.jsp" class="w3-bar-item w3-button">Rechercher des Livres</a>
+        <a href="${pageContext.request.contextPath}/user/myLoans.jsp" class="w3-bar-item w3-button">Mes Emprunts</a>
         <a href="${pageContext.request.contextPath}/logout" class="w3-bar-item w3-button">Déconnexion</a>
     </div>
     <div class="w3-container w3-margin-top">

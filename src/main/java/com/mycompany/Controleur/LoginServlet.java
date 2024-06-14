@@ -7,6 +7,7 @@ package com.mycompany.Controleur;
 
 import com.mycompany.jpa.User;
 import com.mycompany.ejb.UserService;
+import jakarta.ejb.EJB;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -25,7 +26,7 @@ import java.io.PrintWriter;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
-    @Inject
+    @EJB
     private UserService userService;
 
     @Override
@@ -35,11 +36,11 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         User user = userService.authenticate(username, password);
-        System.out.println(user.getRole().getName());
-        System.out.println(user.getRole());
 
         if (user != null) {
             request.getSession().setAttribute("user", user);
+            request.getSession().setAttribute("username", username);
+
             if ("admin".equals(user.getRole().getName())) {
                 response.sendRedirect(request.getContextPath() + "/admin/home.jsp");
             } else {
